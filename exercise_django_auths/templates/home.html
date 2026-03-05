@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+    {% if user.is_authenticated %}
+        <form action="{% url 'accounts:logout' %}" method="post">
+            {{ form }}
+            {% csrf_token %}
+            <button>Logout</button>
+        </form>
+    {% endif %}
+</body>
+</html>
