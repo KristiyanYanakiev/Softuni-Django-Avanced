@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>User Details</h1>
+    
+    {% if request.user.is_anonymous %}
+        <p>User is anonymous</p>
+    
+        {% else %}
+
+  <ul>
+        <li>{{ request.user.username }}</li>
+        <li>{{  request.user.get_short_name }}</li>
+        <li>{{  request.user.get_full_name }}</li>
+        <li>{{  request.user.email }}</li>
+        <li>{{  request.user.is_staff }}</li>
+        <li>{{  request.user.is_active }}</li>
+        <li>Authenticated: {{  request.user.is_authenticated | yesno}}</li>
+    </ul>
+{% endif %}
+</body>
+</html>
