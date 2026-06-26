@@ -1,4 +1,4 @@
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import logout_then_login
@@ -33,3 +33,31 @@ def register_fbv(request: HttpRequest) -> HttpResponse:
         return redirect('common:home')
 
     return render(request, 'accounts/fbv_views/register_fbv.html', {'form': form})
+
+
+def low_level_login_view(request):
+
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+    user = authenticate(request, username=username, password=password)
+
+    if user:
+        login(request, user)
+        return redirect('common:home')
+
+    return render(request, 'accounts/low_level_login.html')
+
+
+def low_level_logout_view(request):
+    if request.method == 'POST':
+        print('here user is logging out')
+        print("Before logout", request.user)
+        logout(request)
+        print("After logout", request.user)
+        return redirect('common:home')
+
+    if request.method == "GET":
+        return render(request, 'accounts/low_level_logout.html')
+
+
+
