@@ -1,0 +1,4 @@
+<form action="{% url 'accounts:logout_cbv' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Test Logout</button>
+</form>

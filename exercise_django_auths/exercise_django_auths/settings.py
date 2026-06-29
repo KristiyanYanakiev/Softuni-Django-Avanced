@@ -32,7 +32,8 @@ ALLOWED_HOSTS = []
 
 PROJECT_APPS = [
     'common',
-    'accounts'
+    'accounts',
+    'api'
 ]
 
 INSTALLED_APPS = [

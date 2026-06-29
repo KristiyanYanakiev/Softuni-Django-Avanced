@@ -1,0 +1,9 @@
+<form method="post">
+    {{ form }}
+    <button>Register</button>
+    {% csrf_token %}
+</form>
+
+{% for message in messages %}
+<p>Here is the error message: {{ message }}</p>
+{% endfor %}

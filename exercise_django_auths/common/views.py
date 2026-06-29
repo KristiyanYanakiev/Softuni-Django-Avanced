@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import logout_then_login
 from django.views.generic import TemplateView, DetailView
 
 
@@ -14,3 +15,5 @@ class HomeView(LoginRequiredMixin, TemplateView):
 
 class UserDetailsPage(TemplateView):
     template_name = 'accounts/user_details.html'
+
+logout_then_login()
