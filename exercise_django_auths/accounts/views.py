@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate, get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserModel
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import logout_then_login, LogoutView
+from django.contrib.auth.views import logout_then_login, LogoutView, PasswordResetDoneView
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
@@ -77,8 +77,6 @@ class CustomLogoutView(LoginRequiredMixin, LogoutView):
     http_method_names = ['get', 'post']
     template_name = 'accounts/cbv_views/logout.html'
     next_page = reverse_lazy('accounts:login_cbv')
-
-
 
 
 
