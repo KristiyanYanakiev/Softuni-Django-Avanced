@@ -3,7 +3,7 @@ from django.contrib.auth.views import LoginView, LogoutView, PasswordResetView, 
 from django.urls import path, reverse_lazy
 
 from accounts import views
-from accounts.views import UserRegister, CustomLogoutView
+from accounts.views import UserRegister, CustomLogoutView, check_user_perms
 from common.views import UserDetailsPage
 
 app_name = 'accounts'
@@ -32,6 +32,6 @@ urlpatterns = [
     path('password-change/done/',PasswordChangeDoneView.as_view(template_name='accounts/cbv_views/password-change-done.html'),
          name='password-change-done'),
 
-
+    path('check-perms/', check_user_perms, name='check-perms')
 
 ]

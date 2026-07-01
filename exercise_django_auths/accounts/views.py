@@ -79,9 +79,17 @@ class CustomLogoutView(LoginRequiredMixin, LogoutView):
     next_page = reverse_lazy('accounts:login_cbv')
 
 
+def check_user_perms(request):
+    res = ''
+    module_perms = ''
 
+    for u in UserModel.objects.all():
+        res += f"The user {u.username} has permission: {u.has_perm('change_article')} -----------------\n"
 
+    for u in UserModel.objects.all():
+        module_perms += f"{u.username} has any permission for articles: {u.has_module_perms('common')}"
 
+    return HttpResponse(f"Permissions checked: {res} ::::::::: Module perms checked: {module_perms}")
 
 
 
