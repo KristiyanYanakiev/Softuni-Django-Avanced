@@ -25,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('common.urls')),
     path('accounts/', include('accounts.urls')),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    path('secure-notes/', include('secure_notes.urls'))
 ]

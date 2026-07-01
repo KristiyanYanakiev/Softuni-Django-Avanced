@@ -1,0 +1,6 @@
+<form method="post">
+    {% csrf_token %}
+    <p>Are you sure you want to delete your note: "{{ object.title }}"?</p>
+    <button type="submit">Yes, Delete/Archive It</button>
+    <a href="{% url 'secure_notes:list' %}">Cancel</a>
+</form>

@@ -33,7 +33,8 @@ ALLOWED_HOSTS = []
 PROJECT_APPS = [
     'common',
     'accounts',
-    'api'
+    'api',
+    'secure_notes'
 ]
 
 INSTALLED_APPS = [

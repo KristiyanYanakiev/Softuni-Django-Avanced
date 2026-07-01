@@ -1,0 +1,8 @@
+{% for note in notes %}
+
+<p>Owner: {{ note.owner }}</p>
+<p>Title: {{ note.title }}</p>
+<p>Body: {{ note.body }}</p>
+{% empty %}
+    No notes yest
+{% endfor %}
